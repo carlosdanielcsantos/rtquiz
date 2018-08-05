@@ -1,0 +1,11 @@
+<p>There are {{n_questions}} questions in total.</p>
+<p>Showing {{n_latest_questions}} latest questions:</p>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+    <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
