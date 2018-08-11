@@ -1,11 +1,9 @@
-<p>There are {{n_questions}} questions in total.</p>
-<p>Showing {{n_latest_questions}} latest questions:</p>
-{% if latest_question_list %}
+{% if quiz_list %}
     <ul>
-    {% for question in latest_question_list %}
-    <li><a href="{% url 'rtquiz:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% for quiz in quiz_list %}
+    <li><a href="{% url 'rtquiz:detail' quiz.id %}">{{ quiz.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No polls are available.</p>
+    <p>No quizes are available.</p>
 {% endif %}
